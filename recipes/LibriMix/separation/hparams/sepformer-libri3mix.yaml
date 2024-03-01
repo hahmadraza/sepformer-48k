@@ -14,17 +14,17 @@ __set_seed: !apply:torch.manual_seed [!ref <seed>]
 
 # e.g. '/yourpath/Libri3Mix/train-clean-360/'
 # the data folder is needed even if dynamic mixing is applied
-data_folder: !PLACEHOLDER
+data_folder: /mnt3/Libri3Mix_48k_own/Libri3Mix/
 
 # This is needed only if dynamic mixing is applied
 base_folder_dm: /yourpath/LibriSpeech/train-clean-360/
 
-experiment_name: sepformer-libri3mix
+experiment_name: sepformer-libri3mix-48k
 output_folder: !ref results/<experiment_name>/<seed>
 train_log: !ref <output_folder>/train_log.txt
 save_folder: !ref <output_folder>/save
 train_data: !ref <save_folder>/libri3mix_train-360.csv
-valid_data: !ref <save_folder>/libri3mix_dev.csv
+valid_data: !ref <save_folder>/libri3mix_test.csv
 test_data: !ref <save_folder>/libri3mix_test.csv
 skip_prep: False
 
@@ -35,23 +35,23 @@ precision: fp16 # bf16, fp16 or fp32 # Set it to True for mixed precision
 num_spks: 3
 noprogressbar: False
 save_audio: False # Save estimated sources on disk
-sample_rate: 8000
+sample_rate: 48000
 
 # Training parameters
 N_epochs: 200
 batch_size: 1
-lr: 0.00015
+lr: 0.0005
 clip_grad_norm: 5
 loss_upper_lim: 999999  # this is the upper limit for an acceptable loss
 # if True, the training sequences are cut to a specified length
-limit_training_signal_len: False
+limit_training_signal_len: True
 # this is the length of sequences if we choose to limit
 # the signal length of training sequences
-training_signal_len: 32000000
+training_signal_len: 100000
 
 # Set it to True to dynamically create mixtures at training time
 dynamic_mixing: False
-use_wham_noise: False
+use_wham_noise: True
 
 # Parameters for data augmentation
 use_wavedrop: False

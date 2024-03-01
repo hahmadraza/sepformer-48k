@@ -126,8 +126,8 @@ def create_libri3mix_csv(
     datapath,
     savepath,
     addnoise=False,
-    version="wav8k/min/",
-    set_types=["train-360", "dev", "test"],
+    version="wav48k/min/",
+    set_types=["train-360", "test"],
 ):
     """
     This functions creates the .csv file for the libri3mix dataset

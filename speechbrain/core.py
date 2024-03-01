@@ -41,6 +41,15 @@ from speechbrain.dataio.dataloader import SaveableDataLoader
 from speechbrain.dataio.sampler import DistributedSamplerWrapper
 from speechbrain.dataio.sampler import ReproducibleRandomSampler
 from dataclasses import dataclass
+# from speechbrain.utils.profiling import profile
+
+# profiler = profile(
+#         schedule=torch.profiler.schedule(wait=1, warmup=1, active=3, repeat=1),
+#         on_trace_ready=torch.profiler.tensorboard_trace_handler('/mnt3/speechbrain/recipes/LibriMix/separation/profiler_log/'),
+#         record_shapes=True,
+#         profile_memory=True,
+#         with_stack=True
+#         )
 
 logger = logging.getLogger(__name__)
 DEFAULT_LOG_CONFIG = os.path.dirname(os.path.abspath(__file__))
