@@ -14,7 +14,7 @@ __set_seed: !apply:torch.manual_seed [!ref <seed>]
 
 # e.g. '/yourpath/Libri3Mix/train-clean-360/'
 # the data folder is needed even if dynamic mixing is applied
-data_folder: /mnt3/Libri3Mix_48k_own/Libri3Mix/
+data_folder: /mnt3/Libri3Mix_48k/Libri3Mix/
 
 # This is needed only if dynamic mixing is applied
 base_folder_dm: /yourpath/LibriSpeech/train-clean-360/
